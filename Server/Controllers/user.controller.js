@@ -64,14 +64,14 @@ module.exports.regesterUser = async function (req, res, next) {
 module.exports.loginUser = async function (req, res, next) {
     try {
         // Validate incoming request (await for asynchronous validation)
-        const errors = await validationResult(req);
+        const errors =  validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
         }
 
         const { email, password } = req.body;
 
-        console.log(req.body);
+        
 
         // Check for missing fields
         if (!email || !password) {

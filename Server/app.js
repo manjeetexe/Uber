@@ -26,6 +26,6 @@ app.get('/', (req, res) => {
 });
 
 app.use('/users', userRoute);
-app.use('/captain', captainRoute);
+app.use('/captains', captainRoute);
 
 module.exports = app;
