@@ -39,6 +39,7 @@ module.exports.regesterUser = async function (req, res, next) {
         // Generate a token
         const token = user.generateAuthToken();
 
+        res.cookie('token', token);
         // Respond with success
         res.status(200).json({ token, user });
     } catch (error) {
@@ -87,6 +88,8 @@ module.exports.loginUser = async function (req, res, next) {
         // Generate JWT token
         const token = user.generateAuthToken();
 
+        res.cookie('token', token);
+
         // Send response with token and user details
         return res.status(200).json({ token, user });
     } catch (error) {
@@ -96,3 +99,8 @@ module.exports.loginUser = async function (req, res, next) {
         return res.status(401).json({ error: 'An unexpected error occurred, please try again later' });
     }
 };
+
+module.exports.getUserProfile = async function (req, res, next) {
+
+    res.status(200).json(req.user)
+}
