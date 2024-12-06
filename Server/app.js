@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const connectToDB = require('./Database/DB');
+const userRoute = require('./Routes/user.route');
 
 
 
@@ -17,6 +18,8 @@ app.use(express.urlencoded({extended: true}));
 app.get('/', (req, res) => {
   res.send('Hello, World!');
 });
+
+app.use('/users', userRoute);
 
 
 module.exports = app;
