@@ -13,6 +13,11 @@ module.exports.regesterUser = async function (req, res, next) {
 
         const { fullname, email, password } = req.body;
 
+        const isUserAlreadyExist = await captainModel.findOne({ email: email, })
+        if (isUserAlreadyExist) {
+            return res.status(400).json({ error: 'Captain with this email already exists' });
+        }
+
         // Check for missing fields
         if (!fullname || !fullname.firstname || !email || !password) {
             return res.status(400).json({ error: 'All fields are required' });
