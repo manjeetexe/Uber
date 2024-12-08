@@ -60,14 +60,14 @@ const captainLogin = () => {
               </form>
               <p className="text-center text-base mt-4">
                 Joint a fleet?{' '}
-                <Link to="/userSignup" className="text-blue-400">
+                <Link to="/captainSignup" className="text-blue-400">
                   Create new Account
                 </Link>
               </p>
             </div>
             <div>
               <Link
-                to="/captainLogin"
+                to="/userLogin"
                 className="bg-orange-500 flex items-center justify-center font-bold text-white rounded px-4 py-3 w-full text-xl placeholder:text-base"
               >
                 Signup as User
